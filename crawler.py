@@ -70,23 +70,6 @@ def bakeryNamePrint():
         bakery_list.append(temp)
 
 
-def extract_comment():
-    time.sleep(2)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-
-    comment_list = soup.select('.list_review > li') 
-    comments = []
-
-    if comment_list:
-        for comment in comment_list:
-            comment_tag = comment.select_one('.desc_review > p')
-            if comment_tag:
-                comments.append(comment_tag.text.strip())
-
-    return comments
-
-
 def extract_aisummary():
     time.sleep(2)
     html = driver.page_source
